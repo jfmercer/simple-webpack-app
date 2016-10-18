@@ -26,7 +26,7 @@ Here are some helpful flags to learn more about each build:
 * `--profile`
 * `--watch`
 
-### Step Two: Demonstrate simple module bundling
+#### Step Two: Demonstrate simple module bundling
 
 For the sake of observing module bundling, `require-me.js` is created,
 required by `main.js`, and then bundled by webpack into `bundle.js`. Take a look
@@ -34,3 +34,13 @@ inside of `bundle.js` to see how `main.js` and `require-me.js` are bundled
 together. Finally, note that webpack protects our code from polluting global
 scope. If you want to attach variables to the global scope, you have to tell
 webpack explicitly to do so.
+
+#### Step Three: Create a sustainable directory structure
+
+Source code, bundled/built/output code, and configurations all have
+their own directories now. Additionally, `webpack-validator` now
+validates the webpack configuration.
+
+Note that, after running webpack, there is no HTML in our build! This is
+not a mistake: webpack simply does not know about the HTML yet or how to
+load it.
