@@ -25,3 +25,12 @@ Here are some helpful flags to learn more about each build:
 * `--display-chunks`
 * `--profile`
 * `--watch`
+
+### Step Two: Demonstrate simple module bundling
+
+For the sake of observing module bundling, `require-me.js` is created,
+required by `main.js`, and then bundled by webpack into `bundle.js`. Take a look
+inside of `bundle.js` to see how `main.js` and `require-me.js` are bundled
+together. Finally, note that webpack protects our code from polluting global
+scope. If you want to attach variables to the global scope, you have to tell
+webpack explicitly to do so.
