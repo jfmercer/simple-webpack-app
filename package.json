@@ -1,0 +1,22 @@
+{
+  "name": "simple-webpack-app",
+  "version": "0.1.0",
+  "description": "An example of a simple webpack application",
+  "main": "src/main.js",
+  "repository": {
+    "url": "https://github.com/jfmercer/simple-webpack-app.git",
+    "type": "git"
+  },
+  "author": {
+    "name": "John F. Mercer",
+    "email": "john.f.mercer@gmail.com"
+  },
+  "engines": {
+    "node": ">=6.8.0"
+  },
+  "license": "GPL-3.0",
+  "private": true,
+  "devDependencies": {
+    "webpack": "^1.13.2"
+  }
+}
