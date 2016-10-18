@@ -1,4 +1,3 @@
 node_modules
 build
-bundle.js
-
+babel-cache
