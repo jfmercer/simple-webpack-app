@@ -22,6 +22,14 @@ const COMMON = {
 
   // Configure loaders for various filetypes
   module: {
+    // preLoaders run before the loaders do. In this case, eslint runs before
+    // the build begins. 
+    preLoaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'eslint'
+    }],
+
     loaders: [{
       test: /\.html$/,
       loader: 'html'

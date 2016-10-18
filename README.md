@@ -60,3 +60,8 @@ source file, but they are injected after the build.
 now uses `import` rather than `require()`. Test files are excluded from
 webpack for the time being because they will be loaded later in a
 separate test configuration.
+
+#### Step Six: Pre-load eslint
+
+`eslint` runs as a webpack preLoader. That is, linting is done before
+the build, properly speaking, begins.
