@@ -17,6 +17,7 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-validator": "^2.2.9"
   }
 }
