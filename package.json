@@ -2,6 +2,9 @@
   "name": "simple-webpack-app",
   "version": "0.1.0",
   "description": "An example of a simple webpack application",
+  "scripts": {
+    "build": "rm -rf build/; webpack"
+  },
   "main": "src/main.js",
   "repository": {
     "url": "https://github.com/jfmercer/simple-webpack-app.git",
@@ -17,6 +20,8 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.22.0",
     "webpack": "^1.13.2",
     "webpack-validator": "^2.2.9"
   }

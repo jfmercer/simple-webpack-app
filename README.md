@@ -44,3 +44,12 @@ validates the webpack configuration.
 Note that, after running webpack, there is no HTML in our build! This is
 not a mistake: webpack simply does not know about the HTML yet or how to
 load it.
+
+#### Step Four: Load HTML
+
+By default, webpack bundles javascript. To get it to load other
+filetypes, loaders and plugins must be used. In this commit, `html-loader`
+tells webpack how to load HTML files, and `html-webpack-plugin`
+injects scripts and links into `index.html` so that they do not have to
+be loaded manually. Note that there are no `<script>` tags in the HTML
+source file, but they are injected after the build.
