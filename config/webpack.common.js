@@ -4,6 +4,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
+  babelCache: path.resolve('./babel-cache'),
   build: path.resolve('./build'),
   index: path.resolve('./src/index.html'),
   main: path.resolve('src/main.js')
@@ -24,6 +25,15 @@ const COMMON = {
     loaders: [{
       test: /\.html$/,
       loader: 'html'
+    }, {
+      test: /\.js$/,
+      // Test files are excluded here because they are loaded
+      // by webpack.test.js
+      exclude: /(node_modules|\.spec\.js$)/,
+      loader: 'babel',
+      query: {
+        cacheDirectory: PATHS.babelCache
+      }
     }],
   },
 

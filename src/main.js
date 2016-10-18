@@ -1,3 +1,4 @@
-require('./components/require-me');
+import './components/require-me';
 
 console.log('Hello, webpack!');
+

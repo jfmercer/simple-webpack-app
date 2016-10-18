@@ -53,3 +53,10 @@ tells webpack how to load HTML files, and `html-webpack-plugin`
 injects scripts and links into `index.html` so that they do not have to
 be loaded manually. Note that there are no `<script>` tags in the HTML
 source file, but they are injected after the build.
+
+#### Step Five: Add ES6 Support
+
+`babel` & the `babel-loader` add support for ES6. Note that `main.js`
+now uses `import` rather than `require()`. Test files are excluded from
+webpack for the time being because they will be loaded later in a
+separate test configuration.
