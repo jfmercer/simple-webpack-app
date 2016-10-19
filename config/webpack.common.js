@@ -66,7 +66,9 @@ const COMMON = {
     }),
 
     // This plugin extracts the css from js and places it in its own file
-    new ExtractTextPlugin('[name].css')
+    // NOTE THAT `allChunks: true` is necessary if you have multiple CSS files,
+    // and therefore CSS in multiple modules
+    new ExtractTextPlugin('[name].css', {allChunks: true})
   ]
 };
 

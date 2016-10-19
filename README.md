@@ -83,3 +83,9 @@ be extracted into their own file?
 
 The `ExtractTextPlugin` is necessary to extract our styles from `main.js` and
 place them in their own file.
+
+#### Step Eight, Part I: Create button component
+
+Using jQuery and Mustache, our app now has a reusable button component.
+However, our `main.js` file has ballooned up to 292K! Surely there is a
+way to shrink this . . .
