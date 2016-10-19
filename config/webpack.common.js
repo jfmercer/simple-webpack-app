@@ -23,7 +23,7 @@ const COMMON = {
   // Configure loaders for various filetypes
   module: {
     // preLoaders run before the loaders do. In this case, eslint runs before
-    // the build begins. 
+    // the build begins.
     preLoaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
@@ -42,7 +42,18 @@ const COMMON = {
       query: {
         cacheDirectory: PATHS.babelCache
       }
-    }],
+    }, {
+      test: /\.css$/,
+      // style-loader resolves css in 'require()' statements
+      // css-loader resolves '@import'' and 'url()' statements
+      // Note that, without the ExtractText plugin, the css
+      // remains embedded in main.js
+      //
+      // '!' is like Unix's pipe, '|'. Reading right-to-left,
+      // css is loaded first via the css-loader and then passed
+      // to the style-loader
+      loader: 'style!css'
+    }]
   },
 
   plugins: [
@@ -53,6 +64,6 @@ const COMMON = {
       showErrors: true // In prod, set this to false. The default is true
     })
   ]
-}
+};
 
 module.exports = validate(COMMON);
