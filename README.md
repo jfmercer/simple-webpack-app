@@ -72,3 +72,9 @@ After adding some very complex css rules to our project, and importing
 them via our main file, the build fails. Why? It is because webpack does
 not natively understand the CSS filetype. We must tell webpack to use
 one or more loaders to handle CSS.
+
+#### Step Seven, Part II: Load CSS
+
+By using the style and css loaders, our project can now load CSS.
+However, these styles remain embedded in `main.js`. How can the styles
+be extracted into their own file?
