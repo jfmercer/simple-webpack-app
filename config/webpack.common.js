@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var validate = require('webpack-validator');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
   babelCache: path.resolve('./babel-cache'),
@@ -52,7 +53,7 @@ const COMMON = {
       // '!' is like Unix's pipe, '|'. Reading right-to-left,
       // css is loaded first via the css-loader and then passed
       // to the style-loader
-      loader: 'style!css'
+      loader: ExtractTextPlugin.extract('style', 'css')
     }]
   },
 
@@ -62,7 +63,10 @@ const COMMON = {
     new HtmlWebpackPlugin({
       template: PATHS.index,
       showErrors: true // In prod, set this to false. The default is true
-    })
+    }),
+
+    // This plugin extracts the css from js and places it in its own file
+    new ExtractTextPlugin('[name].css')
   ]
 };
 

@@ -78,3 +78,8 @@ one or more loaders to handle CSS.
 By using the style and css loaders, our project can now load CSS.
 However, these styles remain embedded in `main.js`. How can the styles
 be extracted into their own file?
+
+#### Step Seven, Part III: Extract CSS
+
+The `ExtractTextPlugin` is necessary to extract our styles from `main.js` and
+place them in their own file.
