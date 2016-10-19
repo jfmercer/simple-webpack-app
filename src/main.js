@@ -3,6 +3,9 @@ import 'babel-polyfill';
 
 // Project Files
 import './really-impressive-styles.css';
-import './js/require-me.js';
+import button from './components/button';
+
+button('Winston').render('#first');
+button('Churchill').render('#second');
 
 console.log('Hello, webpack!');

@@ -9,8 +9,7 @@ module.exports = {
   root: true,
   rules: {
     // General JavaScript Rules
-    'max-len': [
-      'error', 120
-    ]
+    'max-len': ['error', 120],
+    'require-jsdoc': 0
   }
 };
