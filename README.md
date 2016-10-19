@@ -89,3 +89,12 @@ place them in their own file.
 Using jQuery and Mustache, our app now has a reusable button component.
 However, our `main.js` file has ballooned up to 292K! Surely there is a
 way to shrink this . . .
+
+### Step Eight, Part II: Split off button chunk
+
+Using webpack's `require.ensure`, we can split off our fat button from
+`main.js`. Now, `main.js` has "lost weight" because the jQuery code
+was split off into our button chunk (`1.1.js`). This blurs the line
+between our relatively volatile application code and our relatively
+stable vendor code. Could we cleanly separate vendor and application
+code and, at the same time, reduce the size of our application? Hmm . . .
