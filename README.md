@@ -65,3 +65,10 @@ separate test configuration.
 
 `eslint` runs as a webpack preLoader. That is, linting is done before
 the build, properly speaking, begins.
+
+#### Step Seven, Part I: Observe CSS loading failure
+
+After adding some very complex css rules to our project, and importing
+them via our main file, the build fails. Why? It is because webpack does
+not natively understand the CSS filetype. We must tell webpack to use
+one or more loaders to handle CSS.
