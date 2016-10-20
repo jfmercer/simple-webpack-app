@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "An example of a simple webpack application",
   "scripts": {
-    "build": "rm -rf build/; webpack",
+    "build": "rm -rf build/; webpack --config config/webpack.prod.js --production --progress --profile --bail",
     "fix:js": "eslint src/ --fix",
     "lint:js": "eslint src/"
   },
@@ -35,6 +35,7 @@
     "html-webpack-plugin": "^2.22.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
+    "webpack-merge": "^0.15.0",
     "webpack-validator": "^2.2.9"
   },
   "dependencies": {
