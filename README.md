@@ -90,7 +90,7 @@ Using jQuery and Mustache, our app now has a reusable button component.
 However, our `main.js` file has ballooned up to 292K! Surely there is a
 way to shrink this . . .
 
-### Step Eight, Part II: Split off button chunk
+#### Step Eight, Part II: Split off button chunk
 
 Using webpack's `require.ensure`, we can split off our fat button from
 `main.js`. Now, `main.js` has "lost weight" because the jQuery code
@@ -98,3 +98,16 @@ was split off into our button chunk (`1.1.js`). This blurs the line
 between our relatively volatile application code and our relatively
 stable vendor code. Could we cleanly separate vendor and application
 code and, at the same time, reduce the size of our application? Hmm . . .
+
+#### Step Eight, Part III: Create vendor chunk
+
+Many good things were accomplished in this commit. First, all vendor
+code now goes to a `vendor` entry so that our application code is cleanly
+separated from third party libraries. Secondly, by using the
+CommonChunksPlugin, we have created a manifest file which "starts the
+whole application and contains the dependency information needed by it"
+(SurviveJS - Webpack, p. 40). We'll need this later to help with
+caching.
+
+Unfortunately, our `build/` still weighs in at 312K. Isn't there room for
+further improvement? Let's look at additional optimizations.
