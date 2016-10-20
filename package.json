@@ -5,7 +5,8 @@
   "scripts": {
     "build": "rm -rf build/; webpack --config config/webpack.prod.js --production --progress --profile --bail",
     "fix:js": "eslint src/ --fix",
-    "lint:js": "eslint src/"
+    "lint:js": "eslint src/",
+    "start": "webpack-dev-server --progress --config config/webpack.dev.js"
   },
   "main": "src/main.js",
   "repository": {
@@ -35,6 +36,7 @@
     "html-webpack-plugin": "^2.22.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.15.0",
     "webpack-validator": "^2.2.9"
   },
