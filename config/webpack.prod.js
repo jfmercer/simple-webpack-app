@@ -3,15 +3,18 @@ var webpackMerge = require('webpack-merge');
 var validate = require('webpack-validator');
 var commonConfig = require('./webpack.common');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
-  buildDir: path.resolve('./build')
+  build: path.resolve('./build'),
+  index: path.resolve('./src/index.html')
 };
 
 const PROD = webpackMerge(commonConfig, {
   output: {
-    path: PATHS.buildDir,
-    filename: '[name].js'
+    path: PATHS.build,
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[id].[chunkhash].js'
   },
 
   plugins: [
@@ -41,6 +44,15 @@ const PROD = webpackMerge(commonConfig, {
       compress: {
         warnings: false
       }
+    }),
+
+    new HtmlWebpackPlugin({
+      template: PATHS.index,
+      // This is somewhat counterintuitive. Normally, one would *want* an error
+      // to stop the build. However, this plugin doesn't throw console errors:
+      // it injects errors into the HTML document itself. Clearly, this is not
+      // desirably in production.
+      showErrors: false
     })
   ]
 });

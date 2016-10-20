@@ -72,7 +72,7 @@ const COMMON = {
     }),
 
     // This plugin extracts the css from js and places it in its own file
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[name].[chunkhash].css'),
 
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
