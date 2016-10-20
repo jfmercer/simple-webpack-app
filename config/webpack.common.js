@@ -69,7 +69,7 @@ const COMMON = {
     // This plugin extracts the css from js and places it in its own file
     // NOTE THAT `allChunks: true` is necessary if you have multiple CSS files,
     // and therefore CSS in multiple modules
-    new ExtractTextPlugin('[name].css', {allChunks: true}),
+    new ExtractTextPlugin('[name].[chunkhash].css', {allChunks: true}),
 
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],

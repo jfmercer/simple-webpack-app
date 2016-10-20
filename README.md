@@ -125,3 +125,13 @@ much as possible, frequent downloads as the app evolves? Secondly,
 rather than re-run the prod build everytime we make a small change,
 wouldn't it be better simply to have a separate dev build that shows our
 changes instantly?
+
+### Step Nine: Add Hashes for Cache Busting
+
+Our built assets now have hashes appended to their names. This will help
+greatly in cache busting as well as in optimizing UX by reducing
+download times and frequencies. Our fairly stable--and fat--`vendor` file will
+retain the same hash over many, many builds and thus will rarely need to
+be redownloaded. In contrast, our small but volatile `main` file will
+get a new hash will every update to the app, and so the user's browser
+will also download the up-to-date copy.
