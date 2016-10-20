@@ -1,21 +1,24 @@
 import $ from 'jquery';
 import Mustache from 'mustache';
 import template from './button.html';
-import './button.css';
+import styles from './button.css';
 
 export default function button(text) {
   return {
     render: render
   };
 
-  function render(node) {
+  function render(buttonLabel) {
+    var button = Mustache.render(template, {
+      styles: styles,
+      text: text
+    });
+
     // Render the button
-    $(node).html(
-      Mustache.render(template, {text})
-    );
+    $(buttonLabel).html(button);
 
     // Attach a listener
-    $(node).click(onClick.bind(this));
+    $(buttonLabel).click(onClick.bind(this));
   }
 
   function onClick(event) {

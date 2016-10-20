@@ -55,7 +55,7 @@ const COMMON = {
       // '!' is like Unix's pipe, '|'. Reading right-to-left,
       // css is loaded first via the css-loader and then passed
       // to the style-loader
-      loader: ExtractTextPlugin.extract('style', 'css!postcss')
+      loader: ExtractTextPlugin.extract('style', 'css?localIdentName=[name]__[local]__[hash:base64:5]!postcss')
     }]
   },
 
