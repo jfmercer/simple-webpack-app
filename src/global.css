@@ -1,0 +1,8 @@
+body {
+  background: cornsilk;
+  background-image: linear-gradient(to bottom, cornsilk, cornsilk);
+}
+
+.middle {
+  text-align: center
+}

@@ -1,5 +1,5 @@
 // Project Files
-import './really-impressive-styles.css';
+import './global.css';
 
 if (document.querySelectorAll('div#prime-minister').length) {
   require.ensure([], function chunkButtonComponent() {

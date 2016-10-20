@@ -3,6 +3,7 @@ var validate = require('webpack-validator');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 const pkg = require('../package.json');
 
@@ -54,7 +55,7 @@ const COMMON = {
       // '!' is like Unix's pipe, '|'. Reading right-to-left,
       // css is loaded first via the css-loader and then passed
       // to the style-loader
-      loader: ExtractTextPlugin.extract('style', 'css')
+      loader: ExtractTextPlugin.extract('style', 'css!postcss')
     }]
   },
 
@@ -67,11 +68,18 @@ const COMMON = {
     }),
 
     // This plugin extracts the css from js and places it in its own file
-    new ExtractTextPlugin('[name].[chunkhash].css'),
+    new ExtractTextPlugin('[name].[chunkhash].css', {allChunks: true}),
 
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
       minChunks: Infinity
+    })
+  ],
+
+  postcss: [
+    autoprefixer({
+      // configure autoprefixer to support 99% of global browsers
+      browsers: ['> 1%']
     })
   ]
 };
