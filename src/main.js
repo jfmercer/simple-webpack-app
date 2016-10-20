@@ -1,6 +1,3 @@
-// Polyfill libraries
-import 'babel-polyfill';
-
 // Project Files
 import './really-impressive-styles.css';
 

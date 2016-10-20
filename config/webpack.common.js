@@ -4,16 +4,22 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const pkg = require('../package.json');
+
 const PATHS = {
   babelCache: path.resolve('./babel-cache'),
   build: path.resolve('./build'),
   index: path.resolve('./src/index.html'),
-  main: path.resolve('src/main.js')
+  main: path.resolve('src/main.js'),
+  // This terse syntax saves us from creating
+  // and maintaining a separate `vendor.js` file
+  vendor: Object.keys(pkg.dependencies)
 };
 
 const COMMON = {
   entry: {
-    main: PATHS.main
+    main: PATHS.main,
+    vendor: PATHS.vendor
   },
 
   output: {
@@ -66,7 +72,12 @@ const COMMON = {
     }),
 
     // This plugin extracts the css from js and places it in its own file
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest'],
+      minChunks: Infinity
+    })
   ]
 };
 
