@@ -126,7 +126,7 @@ rather than re-run the prod build everytime we make a small change,
 wouldn't it be better simply to have a separate dev build that shows our
 changes instantly?
 
-### Step Nine: Add Hashes for Cache Busting
+#### Step Nine: Add Hashes for Cache Busting
 
 Our built assets now have hashes appended to their names. This will help
 greatly in cache busting as well as in optimizing UX by reducing
@@ -135,3 +135,15 @@ retain the same hash over many, many builds and thus will rarely need to
 be redownloaded. In contrast, our small but volatile `main` file will
 get a new hash will every update to the app, and so the user's browser
 will also download the up-to-date copy.
+
+#### Step Ten: Enable webpack-dev-server
+
+Re-running the prod build for very little code change is terrible for
+productivity. Enter the `webpack-dev-server`. It's a wrapper around
+Express that serves our files from memory (fast!) and has hot module
+replacement enabled (supposedly).
+
+Because we have two builds at this point--production and dev--we can
+remove the `output` object from `webpack.common.js` as it is now no
+longer needed: the common config will not produce any files of its own,
+but will simply share configuration values across various builds.
