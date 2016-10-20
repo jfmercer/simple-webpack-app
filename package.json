@@ -23,6 +23,7 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
+    "autoprefixer": "^6.5.1",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-polyfill": "^6.16.0",
@@ -34,6 +35,8 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
+    "postcss": "^5.2.5",
+    "postcss-loader": "^1.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",

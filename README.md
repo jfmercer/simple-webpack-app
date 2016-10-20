@@ -147,3 +147,20 @@ Because we have two builds at this point--production and dev--we can
 remove the `output` object from `webpack.common.js` as it is now no
 longer needed: the common config will not produce any files of its own,
 but will simply share configuration values across various builds.
+
+#### Step Eleven, Part I: Add postcss autoprefixer
+
+Our project needs postcss. We've started simply by adding the
+autoprefixer. Referring to `caniuse.com`, the autoprefixer automatically
+adds browser-specific rules to our css based on certain configuration
+conditions. For this project, the autoprefixer is set to support 99% of
+the world's web browsers.
+
+As a result, all of the browser-specific rules in button.css have been
+deleted. For demonstration purposes, a completely unnecessary
+`linear-gradient` rule has been added to our global css so that we can
+see the automated prefixes in our build `main.[hash].css`.
+
+Of course, this raises a question: can we separate our global styles
+from our component styles so that namespace conflicts between them are
+impossible?
