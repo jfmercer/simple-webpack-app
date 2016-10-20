@@ -22,11 +22,6 @@ const COMMON = {
     vendor: PATHS.vendor
   },
 
-  output: {
-    filename: '[name].js',
-    path: path.resolve('./build')
-  },
-
   // Configure loaders for various filetypes
   module: {
     // preLoaders run before the loaders do. In this case, eslint runs before

@@ -111,3 +111,17 @@ caching.
 
 Unfortunately, our `build/` still weighs in at 312K. Isn't there room for
 further improvement? Let's look at additional optimizations.
+
+#### Step Eight, Part IV: Create a prod build
+
+A number of optimization plugins were added to optimize our build. It
+dropped from 312K to 112K as a result. Not bad! Because optimizations
+take time & extend our wait for the build, it makes sense to separate
+them into their own prod build in `webpack.prod.js`.
+
+This leaves two separate, but important, questions unanswered. First,
+how can we cache our assets in the client's browser so as to reduce, as
+much as possible, frequent downloads as the app evolves? Secondly,
+rather than re-run the prod build everytime we make a small change,
+wouldn't it be better simply to have a separate dev build that shows our
+changes instantly?
