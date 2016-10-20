@@ -164,3 +164,21 @@ see the automated prefixes in our build `main.[hash].css`.
 Of course, this raises a question: can we separate our global styles
 from our component styles so that namespace conflicts between them are
 impossible?
+
+#### Step Eleven, Part II: Enable Local CSS
+
+By editing our CSS configuration, it is now possible to have locally
+scoped CSS that applies only to the specific web component for which the
+CSS partial was written. In this commit, the button component's CSS
+*and* HTML are transformed so that its class names change from
+`className` into `componentName__className__hash`. This eliminates the
+possibility of CSS global namespace clashes while keeping the CSS rules
+semantic.
+
+Global CSS remains in `global.css`.
+
+This example is somewhat contrived because Mustache + jQuery templating
+hack that I've thrown together is not robust enough to support large
+applications. However, in a different setting (e.g., Angular, React,
+Ember, etc.), the benefits of local CSS are obvious and its creation
+relatively simple.
